@@ -6,15 +6,17 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="dynamic.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='dynamic.css') }}">
     </head>
     <body>
         <div class="main">
+            <div>
+                <img src="{{user[4]}}" alt='profile picture' style="width:48px;height:48px;">
+            </div>
             </h1>
                 {{user[0]}}
             </h1>
             <p>{{user[2]}}</p>
-            <img src="{{user[4]}}" alt='profile picture' style="width:48px;height:48px;">
 
             <ul>
                 <li>{{user[3][0]}}</li>

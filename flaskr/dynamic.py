@@ -8,11 +8,12 @@ bp = Blueprint('<dynamic>', __name__, url_prefix='/')
 
 @bp.route('/<dynamic>', methods=('GET', 'POST'))
 def dynamic(dynamic):
-    db=get_db()
-    cur = db.cursor()
-    sql = f"SELECT * FROM profile WHERE user_id = '{dynamic}'"
-    cur.execute(sql)
-    user = cur.fetchone()
+    if request.method=='GET':
+        db=get_db()
+        cur = db.cursor()
+        sql = f"SELECT * FROM profile WHERE user_id = '{dynamic}'"
+        cur.execute(sql)
+        user = cur.fetchone()
     
     
     return render_template("dynamic.html",user=user)

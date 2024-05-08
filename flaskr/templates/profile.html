@@ -1,17 +1,47 @@
 <!DOCTYPE html>
+{% from "link.html" import link with context %}
+
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
+    <title>Linkdme</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="{{url_for('static', filename='profile.js') }}"></script>
   </head>
   <body>
     <main>
-        <h1 class="user_id"></h1>  
+      
+        <h1>
+          @{{user[0]}}
+        </h1>  
+        <h2>
+          <a target="_blank" href="http://127.0.0.1:5000/{{user[0]}}">your linkdme profile is at http://127.0.0.1:5000/{{user[0]}}</a>
+        </h2>
+        
+        <ul>
+          {%for i in range(0,user[3]|count):%}
+            {{link(i)}}
+          {%endfor%}
+          <li>
+            <span>
+              <button class="add_normal" onclick='add()'>add link</button>
+              <form class= "add_link" style= "display:none;" method="POST">
+                <input name= "add_link" value="">
+                <input type= "submit" value ="submit" class ="submit_button {{i}}">
+                </form>
+            </span>
+          </li>
+        </ul>
+        <div>
+          <form method="POST" action="http://127.0.0.1:5000/profile/logout"> 
+            <input type="submit" value="logout"></input>
+          </form>
+        </div>
+         
     </main>
-	<script src="index.js"></script>
+	<script src="{{ url_for('static', filename='profile.js') }}"></script>
   </body>
 </html>

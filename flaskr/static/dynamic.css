@@ -1,4 +1,16 @@
+html {
+    background-color: bisque;
+}
 .main{
+    text-align: center;
     margin: auto;
     width: 60%;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    background-color: aliceblue;
 }

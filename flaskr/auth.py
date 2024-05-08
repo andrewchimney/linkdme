@@ -2,7 +2,7 @@ import functools
 import logging
 logging.basicConfig(level=logging.DEBUG)
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for
+    Blueprint, flash, g, redirect, render_template, request, session, url_for, session
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 import psycopg2
@@ -36,10 +36,12 @@ def register():
                 db.commit()
                 cur.close()
                 db.close()
+                
             except db.IntegrityError:
                 error = f"User {username} is already registered."
             else:
-                return redirect(url_for("auth.login"))
+                session['user_id'] = request.form['username']
+                return redirect(url_for('profile.index'))
 
         flash(error)
 
@@ -54,7 +56,6 @@ def login():
         cur = db.cursor()
         error = None
         sql = f"SELECT * FROM profile WHERE user_id = '{username}'"
-        print(sql)
         cur.execute(sql)
         user = cur.fetchone()
         print("name",user)
