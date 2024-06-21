@@ -1,0 +1,28 @@
+:root{
+    --gray: #33302f;
+    --orange: #e67300;
+}
+body{
+    background-color: #33302f;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.bubble{
+    background-color: #e67300;
+}
+.main{
+    font-size: 4.5rem;
+}
+.button{
+    display: inline;
+}
+.container2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

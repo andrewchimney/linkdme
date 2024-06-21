@@ -7,7 +7,7 @@ def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY='dev',
+        SECRET_KEY='dev1jfnqooqoiu589232ng',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
 
@@ -29,5 +29,7 @@ def create_app(test_config=None):
     app.register_blueprint(profile.bp)
     from . import dynamic
     app.register_blueprint(dynamic.bp)
+    from . import home
+    app.register_blueprint(home.bp)
 
     return app
