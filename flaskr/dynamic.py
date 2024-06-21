@@ -16,4 +16,4 @@ def dynamic(dynamic):
         user = cur.fetchone()
     
     
-    return render_template("dynamic.html",user=user)
+    return render_template("dynamic.html", user=user )

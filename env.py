@@ -4,5 +4,4 @@ from dotenv import load_dotenv
 load_dotenv()
 # Accessing an environment variable
 print(os.environ['HOME'])
-print(os.environ)
-print(os.getenv('TESTS'))
+print(os.getenv('PORTLINKDME'))

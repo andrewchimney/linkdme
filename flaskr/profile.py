@@ -2,9 +2,12 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 from flaskr.db import get_db
+import os
 bp = Blueprint('profile', __name__)
 @bp.route('/profile', methods =('GET','POST','PUT','DELETE', 'PATCH'))
 def index():
+    ip = os.getenv("IP")
+    print(ip)
     user_id = session.get('user_id')
     if not user_id:
         return redirect(url_for('auth.login'))
@@ -42,7 +45,7 @@ def index():
         pass
         
         
-    return render_template('profile.html',user=user)
+    return render_template('profile.html',user=user, ip=ip)
 
 @bp.route('/profile/logout', methods =('GET','POST'))
 def logout():

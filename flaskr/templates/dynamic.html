@@ -17,11 +17,12 @@
                 {{user[0]}}
             </h1>
             <p>{{user[2]}}</p>
-
+            {% if user[3] %}
             <ul>
                 <li><a href="{{user[3][0]}}">   {{user[3][0]}}   </a></li>
                 <li><a href="{{user[3][1]}}">    {{user[3][1]}}   </a></li>
             </ul>
+            {% endif %}
         </div>
         
         <script src="" async defer></script>

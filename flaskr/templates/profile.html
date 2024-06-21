@@ -9,7 +9,10 @@
     <title>Linkdme</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <script src="{{url_for('static', filename='profile.js') }}"></script>
+    <script type="text/javascript">
+      ip = "{{ ip }}"
+    </script>
+    <script type="text/javascript" src="{{url_for('static', filename='profile.js') }}"></script>
   </head>
   <body>
     <main>
@@ -18,7 +21,7 @@
           @{{user[0]}}
         </h1>  
         <h2>
-          <a target="_blank" href="http://127.0.0.1:5000/{{user[0]}}">your linkdme profile is at http://127.0.0.1:5000/{{user[0]}}</a>
+          <a target="_blank" href="http://127.0.0.1:5000/{{user[0]}}">your linkdme profile is at http://{{ip}}/{{user[0]}}</a>
         </h2>
         
         <ul>
@@ -36,7 +39,7 @@
           </li>
         </ul>
         <div>
-          <form method="POST" action="http://127.0.0.1:5000/profile/logout"> 
+          <form method="POST" action="http://{{ip}}/profile/logout"> 
             <input type="submit" value="logout"></input>
           </form>
         </div>
