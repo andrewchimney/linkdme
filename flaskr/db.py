@@ -1,18 +1,19 @@
 import psycopg2
 import click
 from flask import current_app, g
-import sys
+import os
 
 def get_db():
+
     if 'db' not in g:
         try:
                         
             params = {
-            'database': 'postgres',
-            'user': 'postgres',
-            'password': 'skippy123',
-            'host': '127.0.0.1',
-            'port': 5432
+            'database': os.getenv('DATABASELINKDME'),
+            'user': os.getenv("USERLINKDME"),
+            'password': os.getenv("PASSWORDLINKDME"),
+            'host': os.getenv("HOSTLINKDME"),
+            'port': os.getenv("POSTLINKDME=5432")
             }
             print("connecting to database")
             g.db = psycopg2.connect(**params)

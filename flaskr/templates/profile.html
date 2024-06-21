@@ -28,10 +28,10 @@
           <li>
             <span>
               <button class="add_normal" onclick='add()'>add link</button>
-              <form class= "add_link" style= "display:none;" method="POST">
+              <form class= "add_link" style= "display:none;" onsubmit="event.preventDefault(); post();">
                 <input name= "add_link" value="">
-                <input type= "submit" value ="submit" class ="submit_button {{i}}">
-                </form>
+                <input type= "submit" value ="submit" class ="submit_button">
+              </form>
             </span>
           </li>
         </ul>

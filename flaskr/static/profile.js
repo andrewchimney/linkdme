@@ -18,7 +18,6 @@ function del(i){
 }
 
 function put(i){
-    event.preventDefault();
     inputs = document.getElementsByClassName(`input ${i}`)
     const requestOptions = {
         method: 'PATCH',
@@ -30,4 +29,16 @@ function put(i){
     document.getElementsByClassName(`link_normal ${i}`)[0].style.display="initial"
     document.getElementsByClassName(`link_edit ${i}`)[0].style.display="none"
     
+}
+
+async function post(){
+    inputs = document.getElementsByName(`add_link`)
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ add_link: inputs[0].value})
+    };
+    console.log(requestOptions)
+    response = await fetch('http://127.0.0.1:5000/profile', requestOptions)
+    location.reload(true)
 }

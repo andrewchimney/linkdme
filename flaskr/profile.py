@@ -1,7 +1,6 @@
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
-import psycopg2
 from flaskr.db import get_db
 bp = Blueprint('profile', __name__)
 @bp.route('/profile', methods =('GET','POST','PUT','DELETE', 'PATCH'))
@@ -16,7 +15,7 @@ def index():
     cur.execute(sql)
     user = cur.fetchone()
     if request.method=='POST':
-        a_link = request.form['add_link']
+        a_link = request.json['add_link']
         user[3].append(a_link)
         sql=f"UPDATE profile set links=ARRAY{user[3]} WHERE user_id ='{user_id}'"
         cur.execute(sql)
@@ -35,7 +34,7 @@ def index():
         del_link=request.json['del_link']
         user[3].remove(del_link)
         print(user[3])
-        sql=f"UPDATE profile set links=ARRAY{user[3]} WHERE user_id ='{user_id}'"
+        sql=f"UPDATE profile set links=ARRAY{user[3]}::text[] WHERE user_id ='{user_id}'"
         cur.execute(sql)
         db.commit()
             
