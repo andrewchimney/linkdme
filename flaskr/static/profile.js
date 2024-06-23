@@ -17,7 +17,7 @@ function del(i){
     document.getElementsByClassName(`link ${i}`)[0].remove()
 }
 
-function put(i){
+function patch(i){
     inputs = document.getElementsByClassName(`input ${i}`)
     const requestOptions = {
         method: 'PATCH',
@@ -30,6 +30,20 @@ function put(i){
     document.getElementsByClassName(`link_normal ${i}`)[0].style.display="initial"
     document.getElementsByClassName(`link_edit ${i}`)[0].style.display="none"
     
+}
+async function put(){
+    input = document.getElementById("myFile").files[0]
+    var data = new FormData()
+    data.append('file', input)
+    console.log(input)
+    const requestOptions = {
+        method: 'PUT',
+        body: data
+        
+    };
+    response = await fetch(`http://${ip}/profile`, requestOptions)
+    
+    location.reload(true)
 }
 
 async function post(){

@@ -5,7 +5,7 @@
             <button class = "edit_button {{i}}" onclick="event.preventDefault(); edit({{i}})">edit</button>
             <button class = "delete_button {{i}}" onclick="event.preventDefault(); del({{i}})">delete</button>
         </div>
-        <form class="link_edit {{i}}" onsubmit="event.preventDefault(); put({{i}});">
+        <form class="link_edit {{i}}" onsubmit="event.preventDefault(); patch({{i}});">
             <input name="o_link" class="input {{i}}" value="{{user[3][i]}}" style="display: none;">
             <input name="n_link" class = "input {{i}}" value="{{user[3][i]}}">
             <input type="submit" value ="submit" class ="submit_button {{i}}">

@@ -13,10 +13,9 @@ def get_db():
             'user': os.getenv("USERLINKDME"),
             'password': os.getenv("PASSWORDLINKDME"),
             'host': os.getenv("HOSTLINKDME"),
-            'port': os.getenv("PORTLINKDME=5432")
+            'port': os.getenv("PORTLINKDME")
             }
-            print("connecting to database")
-            print(params)
+            
             g.db = psycopg2.connect(**params)
 
         except Exception as e:

@@ -3,15 +3,18 @@ from flask import (
 )
 from flaskr.db import get_db
 import os
+import boto3
+import logging
+boto3.set_stream_logger('', logging.CRITICAL)
 bp = Blueprint('profile', __name__)
 @bp.route('/profile', methods =('GET','POST','PUT','DELETE', 'PATCH'))
 def index():
     ip = os.getenv("IP")
-    print(ip)
+    s3_client = boto3.client('s3', aws_access_key_id="AKIA6GBMHU2LMLGXDWUD", aws_secret_access_key= "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", config= boto3.session.Config(signature_version='v4', region_name = 'us-east-2',))
+
     user_id = session.get('user_id')
     if not user_id:
         return redirect(url_for('auth.login'))
-    print(user_id)
     db=get_db()
     cur=db.cursor()
     sql = f"SELECT * FROM profile WHERE user_id = '{user_id}'"
@@ -36,16 +39,27 @@ def index():
     if request.method =='DELETE':
         del_link=request.json['del_link']
         user[3].remove(del_link)
-        print(user[3])
         sql=f"UPDATE profile set links=ARRAY{user[3]}::text[] WHERE user_id ='{user_id}'"
         cur.execute(sql)
         db.commit()
+        
+    if request.method=="PUT":
+        print("start of file upload")
+        print(request.files["file"])
+        name=f'{user_id}.png'
+        response = s3_client.put_object(Body=request.files["file"],Bucket="linkdmebucket", Key=name)
+        print(response)
+        link = f'https://linkdmebucket.s3.us-east-2.amazonaws.com/{user_id}.png'
+        sql = f"UPDATE profile set image='{link}' WHERE user_id='{user_id}'"
+        cur.execute(sql)
+        db.commit()
+        
             
     if request.method=='GET':
         pass
         
         
-    return render_template('profile.html',user=user, ip=ip)
+    return render_template('profile.html',user=user, ip=ip, s3_client=s3_client)
 
 @bp.route('/profile/logout', methods =('GET','POST'))
 def logout():
