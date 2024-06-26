@@ -10,20 +10,30 @@
     </head>
     <body>
         <div class="main">
-            <div>
-                <img src="{{user[4]}}" alt='profile picture' width=100 height=100>
+            {% if user[4]%}
+            <div class="img_container">
+                <img src="{{user[4]}}" >
             </div>
-
-            </h1>
-                {{user[0]}}
-            </h1>
-            <p>{{user[2]}}</p>
+            {%endif%}
+            <div class="handle_container">
+                </h1>@{{user[0]}}</h1>
+            </div>
+            {% if user[2]%}
+            <div class="bio_container">
+                <p>{{user[2]}}</p>
+            </div>
+            {% endif %}
             {% if user[3] %}
             <ul>
-                <li><a href="{{user[3][0]}}">   {{user[3][0]}}   </a></li>
-                <li><a href="{{user[3][1]}}">    {{user[3][1]}}   </a></li>
-            </ul>
+            
             {% endif %}
+            {%for i in range(0,user[3]|count):%}
+                <a target="_blank" href="{{user[3][i]}}"><li class="link">   {{user[3][i]}}   </li></a>
+            {%endfor%}
+            </ul>
+        </div>
+        <div class="end">
+            <span>create your own page at https://{{ip}}.ee</span>
         </div>
         
         <script src="" async defer></script>

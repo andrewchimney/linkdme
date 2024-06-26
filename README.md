@@ -10,7 +10,7 @@ params = {
             }
 
 helpful commands:
- sudo ssh -i "databasedec2.pem" ubuntu@ec2-3-19-164-119.us-east-2.compute.amazonaws.com
+sudo ssh -i "databasedec2.pem" ubuntu@ec2-3-19-164-119.us-east-2.compute.amazonaws.com
 sudo systemctl restart apache2
 curl http://3.19.164.119/
 curl http://127.0.0.1:8080
@@ -23,3 +23,5 @@ bg
 fg
 printenv
 nano /etc/environment
+crontab -e
+crontab -l

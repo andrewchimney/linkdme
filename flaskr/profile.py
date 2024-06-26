@@ -44,15 +44,22 @@ def index():
         db.commit()
         
     if request.method=="PUT":
-        print("start of file upload")
-        print(request.files["file"])
-        name=f'{user_id}.png'
-        response = s3_client.put_object(Body=request.files["file"],Bucket="linkdmebucket", Key=name)
-        print(response)
-        link = f'https://linkdmebucket.s3.us-east-2.amazonaws.com/{user_id}.png'
-        sql = f"UPDATE profile set image='{link}' WHERE user_id='{user_id}'"
-        cur.execute(sql)
-        db.commit()
+        if (request.content_type =="application/json"):
+            bio=request.json['bio']
+            if (bio==""):
+                sql=f"UPDATE profile set bio=NULL WHERE user_id='{user_id}'"
+            else :
+                sql=f"UPDATE profile set bio='{bio}' WHERE user_id='{user_id}'"
+            cur.execute(sql)
+            db.commit()
+        else:
+            name=f'{user_id}.png'
+            response = s3_client.put_object(Body=request.files["file"],Bucket="linkdmebucket", Key=name)
+            print(response)
+            link = f'https://linkdmebucket.s3.us-east-2.amazonaws.com/{user_id}.png'
+            sql = f"UPDATE profile set image='{link}' WHERE user_id='{user_id}'"
+            cur.execute(sql)
+            db.commit()
         
             
     if request.method=='GET':

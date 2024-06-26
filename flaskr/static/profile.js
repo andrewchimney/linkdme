@@ -1,3 +1,46 @@
+
+bio = document.getElementById("bio_edit")
+edit_svg = document.getElementById("edit_svg")
+delete_svg = document.getElementById("delete_svg")
+edit_svg.addEventListener('click', function(){
+    bio.focus()
+})
+
+delete_svg.addEventListener('click', async function(){
+    console.log('delete')
+    s = ""
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bio: s})
+    };
+    response = await fetch(`http://${ip}/profile`, requestOptions)
+    bio.innerText="None"
+})
+bio.addEventListener('focusout', async function() {
+    input=bio.innerText
+    if(input=="None"){
+        input=""
+    }
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bio: input})
+    };
+    response = await fetch(`http://${ip}/profile`, requestOptions)
+    if(bio.innerText==""){
+        bio.innerText="None"
+        
+    }
+})
+
+bio.addEventListener('keypress', function(e){
+    if( e.keyCode == 13){
+        bio.blur()
+    }
+})
+
+
 function edit(i){
     document.getElementsByClassName(`link_normal ${i}`)[0].style.display="none"
     document.getElementsByClassName(`link_edit ${i}`)[0].style.display="initial"

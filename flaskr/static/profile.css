@@ -1,3 +1,44 @@
+:root{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+html {
+    background-color: aliceblue;
+}
+body{
+    margin: 0;
+}
+main{
+    text-align: center;
+    margin: auto;
+    width: 60%;
+    margin-bottom: 3%;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.link_profile{
+    text-decoration: underline;
+    font-weight: normal;
+}
 .link_edit{
     display: none;
+    cursor: pointer;
+}
+#bio_edit{
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+#edit_svg{
+    cursor: pointer;
+}
+#delete_svg{
+    cursor: pointer;
 }

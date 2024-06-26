@@ -16,25 +16,33 @@
   </head>
   <body>
     <main>
-        <div>
-          <img src="{{user[4]}}" width=100 height=100/>
-          <!--<form onsubmit="put();" enctype='multipart/form-data'>
-            <input type="file" enctype='multipart/form-data' id="myFile" name="file">
-            <input type="submit">
-          </form>-->
-          <input type="file" enctype='multipart/form-data' id="myFile" name="file">
-          <button onclick="put()" >submit</button>
-        </div>
         <h1>
           @{{user[0]}}
         </h1>  
         <h2>
-          <a target="_blank" href="http://{{ip}}/{{user[0]}}">your linkdme profile is at http://{{ip}}/{{user[0]}}</a>
+          <a target="_blank" href="http://{{ip}}/{{user[0]}}">your linkdm.ee profile is at <span class="link_profile">http://{{ip}}/{{user[0]}}</span></a>
         </h2>
-        
+        <h2>bio:</h2>
+        <div>
+          <span contentEditable="true" id="bio_edit" spellcheck="false" >{{user[2]}} </span>
+          <img id="edit_svg" width="15" height="15" src="/static/img/edit.svg">
+          <img id="delete_svg" width="15" height ='15' src="static/img/delete.svg">
+        </div>
+        <h2>links:</h2>
         <ul>
           {%for i in range(0,user[3]|count):%}
-            {{link(i)}}
+          <li class="link {{i}}">
+            <div class="link_normal {{i}}">
+                <span class="span {{i}}">{{user[3][i]}}</span>
+                <button class = "edit_button {{i}}" onclick="event.preventDefault(); edit({{i}})">edit</button>
+                <button class = "delete_button {{i}}" onclick="event.preventDefault(); del({{i}})">delete</button>
+            </div>
+            <form class="link_edit {{i}}" onsubmit="event.preventDefault(); patch({{i}});">
+                <input name="o_link" class="input {{i}}" value="{{user[3][i]}}" style="display: none;">
+                <input name="n_link" class = "input {{i}}" value="{{user[3][i]}}">
+                <input type="submit" value ="submit" class ="submit_button {{i}}">
+            </form>
+        </li>
           {%endfor%}
           <li>
             <span>
@@ -46,6 +54,11 @@
             </span>
           </li>
         </ul>
+        <div>
+          <img src="{{user[4]}}" width=100 height=100/>
+          <input type="file" enctype='multipart/form-data' id="myFile" name="file">
+          <button onclick="put()" >submit</button>
+        </div>
         <div>
           <form method="POST" action="http://{{ip}}/profile/logout"> 
             <input type="submit" value="logout"></input>

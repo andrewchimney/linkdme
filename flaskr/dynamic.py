@@ -3,11 +3,13 @@ from flask import (
 )
 import psycopg2
 from flaskr.db import get_db
+import os
 
 bp = Blueprint('<dynamic>', __name__, url_prefix='/')
 
 @bp.route('/<dynamic>', methods=('GET', 'POST'))
 def dynamic(dynamic):
+    ip = os.getenv("IP")
     if request.method=='GET':
         db=get_db()
         cur = db.cursor()
@@ -16,4 +18,4 @@ def dynamic(dynamic):
         user = cur.fetchone()
     
     
-    return render_template("dynamic.html", user=user )
+    return render_template("dynamic.html", user=user, ip=ip)
