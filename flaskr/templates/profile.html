@@ -20,7 +20,7 @@
           @{{user[0]}}
         </h1>  
         <h2>
-          <a target="_blank" href="http://{{ip}}/{{user[0]}}">your linkdm.ee profile is at <span class="link_profile">http://{{ip}}/{{user[0]}}</span></a>
+          <a target="_blank" href="{{web}}/{{user[0]}}">your linkdm.ee profile is at <span class="link_profile">{{web}}/{{user[0]}}</span></a>
         </h2>
         <h2>bio:</h2>
         <div>
@@ -60,7 +60,7 @@
           <button onclick="put()" >submit</button>
         </div>
         <div>
-          <form method="POST" action="http://{{ip}}/profile/logout"> 
+          <form method="POST" action="{{web}}/profile/logout"> 
             <input type="submit" value="logout"></input>
           </form>
         </div>

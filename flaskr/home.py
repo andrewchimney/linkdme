@@ -6,4 +6,4 @@ bp = Blueprint('/', __name__)
 ip = os.getenv("IP")
 @bp.route('/', methods =('GET','POST'))
 def index():
-     return render_template('home.html', ip=ip)
+     return render_template('home.html', web=os.getenv("WEBSITELINKDME"))

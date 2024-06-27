@@ -9,7 +9,7 @@ boto3.set_stream_logger('', logging.CRITICAL)
 bp = Blueprint('profile', __name__)
 @bp.route('/profile', methods =('GET','POST','PUT','DELETE', 'PATCH'))
 def index():
-    ip = os.getenv("IP")
+    print(os.getenv("WEBSITELINKDME"))
     s3_client = boto3.client('s3', aws_access_key_id="AKIA6GBMHU2LMLGXDWUD", aws_secret_access_key= "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", config= boto3.session.Config(signature_version='v4', region_name = 'us-east-2',))
 
     user_id = session.get('user_id')
@@ -44,6 +44,7 @@ def index():
         db.commit()
         
     if request.method=="PUT":
+        print("put request started")
         if (request.content_type =="application/json"):
             bio=request.json['bio']
             if (bio==""):
@@ -54,6 +55,7 @@ def index():
             db.commit()
         else:
             name=f'{user_id}.png'
+            print(request.files['file'])
             response = s3_client.put_object(Body=request.files["file"],Bucket="linkdmebucket", Key=name)
             print(response)
             link = f'https://linkdmebucket.s3.us-east-2.amazonaws.com/{user_id}.png'
@@ -66,7 +68,7 @@ def index():
         pass
         
         
-    return render_template('profile.html',user=user, ip=ip, s3_client=s3_client)
+    return render_template('profile.html',user=user, web=os.getenv("WEBSITELINKDME"), s3_client=s3_client)
 
 @bp.route('/profile/logout', methods =('GET','POST'))
 def logout():

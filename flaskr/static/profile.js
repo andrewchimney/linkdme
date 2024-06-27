@@ -14,7 +14,7 @@ delete_svg.addEventListener('click', async function(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ bio: s})
     };
-    response = await fetch(`http://${ip}/profile`, requestOptions)
+    response = await fetch(`/profile`, requestOptions)
     bio.innerText="None"
 })
 bio.addEventListener('focusout', async function() {
@@ -27,7 +27,7 @@ bio.addEventListener('focusout', async function() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ bio: input})
     };
-    response = await fetch(`http://${ip}/profile`, requestOptions)
+    response = await fetch(`/profile`, requestOptions)
     if(bio.innerText==""){
         bio.innerText="None"
         
@@ -56,7 +56,7 @@ function del(i){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ del_link: link})
     };
-    fetch(`http://${ip}/profile`, requestOptions)
+    fetch(`/profile`, requestOptions)
     document.getElementsByClassName(`link ${i}`)[0].remove()
 }
 
@@ -68,7 +68,7 @@ function patch(i){
         body: JSON.stringify({ o_link: inputs[0].value, n_link: inputs[1].value})
         
     };
-    fetch(`http://${ip}/profile`, requestOptions)
+    fetch(`/profile`, requestOptions)
     document.getElementsByClassName(`span ${i}`)[0].innerHTML=inputs[1].value
     document.getElementsByClassName(`link_normal ${i}`)[0].style.display="initial"
     document.getElementsByClassName(`link_edit ${i}`)[0].style.display="none"
@@ -84,7 +84,7 @@ async function put(){
         body: data
         
     };
-    response = await fetch(`http://${ip}/profile`, requestOptions)
+    response = await fetch(`/profile`, requestOptions)
     
     location.reload(true)
 }
@@ -97,6 +97,6 @@ async function post(){
         body: JSON.stringify({ add_link: inputs[0].value})
     };
     console.log(requestOptions)
-    response = await fetch(`http://${ip}/profile`, requestOptions)
+    response = await fetch(`/profile`, requestOptions)
     location.reload(true)
 }

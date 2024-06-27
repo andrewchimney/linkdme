@@ -9,7 +9,6 @@ bp = Blueprint('<dynamic>', __name__, url_prefix='/')
 
 @bp.route('/<dynamic>', methods=('GET', 'POST'))
 def dynamic(dynamic):
-    ip = os.getenv("IP")
     if request.method=='GET':
         db=get_db()
         cur = db.cursor()
@@ -18,4 +17,4 @@ def dynamic(dynamic):
         user = cur.fetchone()
     
     
-    return render_template("dynamic.html", user=user, ip=ip)
+    return render_template("dynamic.html", user=user, web=os.getenv("WEBSITELINKDME"))
