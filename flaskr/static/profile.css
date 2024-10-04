@@ -8,7 +8,7 @@ body{
     margin: 0;
 }
 main{
-    text-align: center;
+    
     margin: auto;
     width: 60%;
     margin-bottom: 3%;
@@ -19,9 +19,16 @@ ul {
     padding: 0;
     
 }
+li{
+    margin-top: 1%;
+}
+
 a{
     color: black;
     text-decoration: none;
+}
+.error{
+    color: red;
 }
 .link_profile{
     text-decoration: underline;

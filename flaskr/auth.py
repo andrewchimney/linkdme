@@ -9,7 +9,9 @@ import psycopg2
 from flaskr.db import get_db
 import sys
 bp = Blueprint('auth', __name__, url_prefix='/auth')
-
+@bp.route('/', methods=('GET', 'POST'))
+def index():
+    return render_template('auth.html')
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':

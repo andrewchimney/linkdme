@@ -9,9 +9,6 @@
     <title>Linkdme</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <script type="text/javascript">
-      ip = "{{ ip }}"
-    </script>
     <script type="text/javascript" src="{{url_for('static', filename='profile.js') }}"></script>
   </head>
   <body>
@@ -42,12 +39,12 @@
                 <input name="n_link" class = "input {{i}}" value="{{user[3][i]}}">
                 <input type="submit" value ="submit" class ="submit_button {{i}}">
             </form>
-        </li>
+          </li>
           {%endfor%}
           <li>
             <span>
               <button class="add_normal" onclick='add()'>add link</button>
-              <form class= "add_link" style= "display:none;" onsubmit="event.preventDefault(); post();">
+              <form class= "add_link" style= "display:none;" id="add_form" onsubmit="event.preventDefault(); post();">
                 <input name= "add_link" value="">
                 <input type= "submit" value ="submit" class ="submit_button">
               </form>

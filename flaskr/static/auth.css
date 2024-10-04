@@ -1,0 +1,45 @@
+
+:root{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+html {
+    background-color: aliceblue;
+    
+}
+body{
+    margin: 0;
+}
+li{
+    margin-top: 2%;
+}
+.join{
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    text-align: center;
+    font-size: 4rem;
+}
+.typeContainer{
+    font-size: 1.5rem;
+    margin: auto;
+    width: 30%;
+    padding: 0;
+}
+
+label{
+    display: block;
+    margin-top: 4%;
+}
+input{
+    display: block;
+    width: 100%;
+    font-size: 1.5rem;
+    margin: 0;
+    margin-top: 2%;
+    padding: 0;
+}
+.button{
+    border-radius: 10rem;
+    margin-top: 4%;
+    padding: 0.3rem;
+}
