@@ -1,7 +1,7 @@
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
-from flaskr.db import get_db
+from flaskr.db import get_db, get_s3
 import os
 import boto3
 import logging
@@ -10,7 +10,7 @@ bp = Blueprint('profile', __name__)
 @bp.route('/profile', methods =('GET','POST','PUT','DELETE', 'PATCH'))
 def index():
     print(os.getenv("WEBSITELINKDME"))
-    s3_client = boto3.client('s3', aws_access_key_id="AKIA6GBMHU2LMLGXDWUD", aws_secret_access_key= "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", config= boto3.session.Config(signature_version='v4', region_name = 'us-east-2',))
+    s3_client = get_s3()
 
     user_id = session.get('user_id')
     if not user_id:
