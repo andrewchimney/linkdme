@@ -3,6 +3,7 @@
 }
 html {
     background-color: aliceblue;
+    font-size: 100%;
 }
 body{
     margin: 0;
@@ -13,22 +14,37 @@ body{
     align-items: center;
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 3%;
+    margin-top: 2%;
+    margin-bottom: 7%;
     padding: 5px 5px 5px 5px;
     border-radius: 50px;
+    
 }
 .title{
     font-size: 4rem;
 }
-.auth_button{
+.log_in{
     display: inline;
-    background-color: lightblue;
     font-size: 3rem;
-    border-radius: 50px;
-    padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+    font-weight: bold;
+    color: teal;
+}
+.or{
+    display: inline;
+    font-size: 1.5rem;
+
+}
+.sign_up{
+    border: solid;
+    display: inline;
+    font-size: 3rem;
+    border-radius: 1rem;
+    border-width: 0.3rem;
+    padding: 0.7rem 1.5rem 1.0rem 1.5rem;
+    color: teal;
 }
 .container_auth{
-    gap: 100px;
+    gap: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,4 +65,65 @@ a:active{
     text-align: center;
     margin: auto;
     font-size: 2.5rem;
+}
+.logo{
+    width: 50px
+}
+.container_main{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-bottom: 10%;
+    align-items: center;
+    justify-content: center;
+}
+.text_container{
+    font-size: 2rem;
+    width: 35rem;
+    margin: auto;
+    text-align: left;
+}
+.image_container{
+    margin: auto;
+    text-align: center;
+    width: 35rem;
+}
+.app_image{
+    width: 30rem;
+    border: solid;
+    border-radius: 1rem;
+    border-color: teal;
+    border-width: .5rem;
+}
+.get_started_container{
+    display: flex;
+}
+.get_started{
+    color: aliceblue;
+    align-self: center;
+    justify-self: center;
+    margin: auto;
+    border-radius: 1rem;
+    background: teal;
+    padding: 1.0rem 1.5rem 1.0rem 1.5rem;
+}
+footer{
+    background-color: teal;
+    color: aliceblue;
+    margin: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+}
+.footer_container{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7rem;
+    font-size: 1.3rem;
 }

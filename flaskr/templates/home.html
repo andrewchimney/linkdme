@@ -7,32 +7,61 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     </head>
     <body>
         <div class="container_title">
             <div class="title">
-                <span >Linkdme</span>
+                <a href="">
+                    <span><img class="logo" src="static/img/icon.png"> Linkdme</span>
+                </a>
             </div>
             <div class="container_auth">
-                <a href="/auth/register">
-                    <div class="auth_button">
-                        <span>sign up</span>
-                    </div>
-                </a>
                 <a href= "/auth/login">
-                    <div class="auth_button">
-                        <span>log in</span>
-                    </div>
+                    <span class="log_in">log in</span>
+            </a>
+            <div class="or">
+                or
+            </div>
+                <a href="/auth/register">
+                        <span class="sign_up">sign up</span>
                 </a>
             </div>  
         </div>
-        <div class="text">
-            <h1>
-                All your links in once place. 
-            </h1>
-            <p>
-                Make it easy to stay connected. Create a profile page where you can list any many links as you want.
-            </p>
+        <div class="container_main">
+            <div class="text_container">
+                <h1>
+                    All your links in once place. 
+                </h1>
+                <p>
+                    Make it easy to stay connected. Create a profile page where you can list any many links as you want.
+                </p>
+                <div class="get_started_container">
+                    <a class="get_started" href="auth/register">
+                        <span>Get started for free</span>
+                    </a>
+                </div>
+            </div>
+            <div class="image_container">
+                <img class="app_image"src="static/img/app.png">
+            </div>
+
         </div>
+        <footer>
+           <div class="footer_container">
+                <div>
+                    email
+                </div>
+                <div>
+                    terms of service
+                </div>
+                <div>
+                    privacy policy
+                </div>
+                <div>
+                    copyright
+                </div>
+           </div>
+        </footer>
     </body>
 </html>
