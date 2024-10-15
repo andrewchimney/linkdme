@@ -7,6 +7,7 @@ html {
 }
 body{
     margin: 0;
+    height: 100%;
 }
 .container_title{
     display: flex;
@@ -98,6 +99,7 @@ a:active{
 }
 .get_started_container{
     display: flex;
+    margin-bottom: 10%;
 }
 .get_started{
     color: aliceblue;
@@ -111,19 +113,21 @@ a:active{
 footer{
     background-color: teal;
     color: aliceblue;
-    margin: auto;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    margin: 0;
+    height: 3rem;
+    margin-top: 3rem;
+    
     
 }
 .footer_container{
-    padding-top: 2rem;
-    padding-bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    vertical-align: middle;
     gap: 7rem;
     font-size: 1.3rem;
+    height: 100%;
+}
+main{
+    min-height: 100%;
 }
