@@ -2,6 +2,15 @@
 <title>{% block title %}{% endblock %} - Linkdme</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<header>
+  <div class="container_title">
+      <div class="title">
+          <a href="/">
+              <span><img class="logo" src="/static/img/icon.png"> Linkdme</span>
+          </a>
+      </div>
+  </div>
+</header>
 <main>
   {% block header%}{% endblock %}
   <div class='typeContainer'>

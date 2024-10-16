@@ -117,7 +117,7 @@ button{
 button:hover{
     cursor: pointer;
 }
-input[type=submit]{
+input[type=file]::file-selector-button, input[type=submit]{
     border-radius: .3rem;
     border: none;
     background-color: teal;
