@@ -1,8 +1,9 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - Linkdme</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 <main>
-  <h1 class="join">Join linkdm.ee</h1>
+  {% block header%}{% endblock %}
   <div class='typeContainer'>
   {% block content %}{% endblock %}
   </div>

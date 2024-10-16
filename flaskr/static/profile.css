@@ -8,7 +8,7 @@ body{
     margin: 0;
 }
 main{
-    
+    text-align: center;
     margin: auto;
     width: 60%;
     margin-bottom: 3%;
@@ -31,8 +31,8 @@ a{
     color: red;
 }
 .link_profile{
-    text-decoration: underline;
     font-weight: normal;
+    color: teal;
 }
 .link_edit{
     display: none;
@@ -48,4 +48,90 @@ a{
 }
 #delete_svg{
     cursor: pointer;
+}
+h1{
+    margin: 0;
+    font-size: 2.5rem;
+}
+p{
+    font-size: 1.5rem;
+}
+
+.container_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 5px 5px 5px 5px;
+    border-radius: 50px;
+    
+}
+.title{
+    font-size: 4rem;
+}
+.log_out:hover{
+    cursor: pointer;
+    
+}
+.visit_profile{
+    margin: auto;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    border-width: 0.3rem;
+    width: 16%;
+    padding: 1.2rem 2.5rem 1.0rem 2.5rem;
+    color: white;
+    background-color: teal;
+}
+.container_auth{
+    gap: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    width: 50px
+}
+.container_auth{
+    gap: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile_pic{
+    border-radius: 10rem;
+    width: 7.5rem;
+    height: 7.5rem;
+}
+button{
+    border-radius: .3rem;
+    border: none;
+    background-color: teal;
+    padding: .2rem .2rem .2rem .2rem;
+    color: white;
+}
+button:hover{
+    cursor: pointer;
+}
+input[type=submit]{
+    border-radius: .3rem;
+    border: none;
+    background-color: teal;
+    padding: .2rem .2rem .2rem .2rem;
+    color: white;
+}
+button:hover{
+    cursor: pointer;
+}
+.log_out{
+    border: none;
+    font-size: 2rem !important; 
+    border-radius: 1rem !important;
+    padding: 1.2rem 2.5rem 1.0rem 2.5rem !important;
+    color: white;
+    background-color: teal;
 }
